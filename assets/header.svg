@@ -7,7 +7,7 @@
 </defs>
 <style>
 .sans{font-family:'Segoe UI', 'Helvetica Neue', Ubuntu, Arial, sans-serif}
-.mono{font-family:'Cascadia Code', 'SFMono-Regular', Consolas, 'Liberation Mono', monospace;font-size:15px;fill:#c9d1d9}
+.mono{font-family:'Cascadia Code', 'SFMono-Regular', Consolas, 'Liberation Mono', monospace;font-size:15px;fill:#c9d1d9;white-space:pre}
 .in{opacity:0;animation:in .8s ease forwards}
 @keyframes in{to{opacity:1}}
 </style>
