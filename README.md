@@ -33,15 +33,26 @@ const willyam = {
 ### `> stack --auto`
 
 <!-- STACKS:START -->
-<p align="center"><i>As stacks são detectadas automaticamente pelo GitHub Action. Rode o workflow <b>Atualizar README</b> para gerar esta seção.</i></p>
+<p align="center"><b>Frameworks, bancos & ferramentas</b><br/><br/><img src="https://skillicons.dev/icons?i=git,github,vscode,linux&theme=dark&perline=12" alt="Ferramentas" /></p>
+
+<p align="center"><sub>🤖 Detectado automaticamente em 2 repositórios</sub></p>
 <!-- STACKS:END -->
 
 ---
 
 <!-- FEATURED:START -->
+
 <!-- FEATURED:END -->
 
 <!-- PROJECTS:START -->
+### `> git log --recent`
+
+| Projeto | Descrição | Linguagem | ⭐ |
+| --- | --- | --- | --- |
+| [**ChieFFlow**](https://github.com/WillyamVoges/ChieFFlow) | Config files for my GitHub profile. | `—` | 0 |
+| [**Luck**](https://github.com/WillyamVoges/Luck) | Look | `—` | 0 |
+
+---
 <!-- PROJECTS:END -->
 
 ### `> github --stats`
@@ -57,9 +68,9 @@ const willyam = {
 
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/SEU_USUARIO/SEU_USUARIO/output/github-snake-dark.svg" />
-    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/SEU_USUARIO/SEU_USUARIO/output/github-snake.svg" />
-    <img alt="snake" src="https://raw.githubusercontent.com/SEU_USUARIO/SEU_USUARIO/output/github-snake-dark.svg" />
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/WillyamVoges/WillyamVoges/output/github-snake-dark.svg" />
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/WillyamVoges/WillyamVoges/output/github-snake.svg" />
+    <img alt="snake" src="https://raw.githubusercontent.com/WillyamVoges/WillyamVoges/output/github-snake-dark.svg" />
   </picture>
 </p>
 
