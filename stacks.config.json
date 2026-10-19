@@ -1,27 +1,47 @@
 {
+  "profile": {
+    "name": "Willyam Voges",
+    "role": "Founder @ eSoluções · Full-Stack Developer",
+    "tagline": "Produtos SaaS e software sob medida com inteligência artificial.",
+    "location": "Porto Alegre, RS  ·  esolu.com.br"
+  },
+  "impact": [
+    { "value": "18 mi+", "label": "mensagens processadas" },
+    { "value": "930 mil+", "label": "conversas atendidas" },
+    { "value": "150 mil+", "label": "conversas conduzidas por IA" },
+    { "value": "5.000+", "label": "contratos fechados por IA" }
+  ],
   "featured": [
     {
       "name": "eSolu Chat",
+      "tag": "Atendimento · IA",
       "repo": "esolu-chat",
       "url": "https://esolu.com.br/pt/produtos/esolu-chat",
-      "description": "Plataforma de atendimento multicanal (WhatsApp, Instagram e Facebook) com agentes de IA, CRM e relatórios"
+      "description": "WhatsApp, Instagram e Facebook em uma única caixa de entrada, com agentes de IA, CRM e relatórios.",
+      "chips": ["WhatsApp", "Instagram", "Facebook", "Agentes IA", "CRM"]
     },
     {
       "name": "Camellium",
+      "tag": "Jurídico · IA",
       "repo": "camellium",
       "url": "https://esolu.com.br/pt/produtos/camellium",
-      "description": "Suíte jurídica modular: gestão de escritório, calculadoras, chat e agente de IA para advogados"
+      "description": "Suíte jurídica modular: gestão do escritório, calculadoras, chat e agente de IA treinados para a rotina do advogado.",
+      "chips": ["Gestão", "Calculadoras", "Agentes IA"]
     },
     {
       "name": "Vellumi",
+      "tag": "Beleza · IA",
       "repo": "vellumi",
       "url": "https://esolu.com.br/pt/produtos/salao-ai",
-      "description": "Sistema para salões de beleza com agenda, fichas, caixa e atendente de IA que marca horários pelo WhatsApp"
+      "description": "Gestão completa para salões: agenda, fichas de clientes, caixa e comissões, com uma atendente de IA que agenda pelo WhatsApp.",
+      "chips": ["Agenda", "Caixa", "WhatsApp", "Agentes IA"]
     },
     {
-      "name": "Agentes de IA comercial",
+      "name": "Agentes de IA Comercial",
+      "tag": "Vendas · IA",
       "url": "https://esolu.com.br/pt/servicos/agentes-ia-comercial-juridico",
-      "description": "Equipes comerciais com IA que atendem, qualificam e fecham negócios 24/7"
+      "description": "Agentes que atendem, qualificam leads e fecham negócios 24 horas por dia, adaptados a qualquer segmento.",
+      "chips": ["Atendimento", "Qualificação", "Vendas 24/7"]
     }
   ],
   "extra": ["git", "github", "vscode", "linux"],

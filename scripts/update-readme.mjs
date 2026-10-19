@@ -1,4 +1,4 @@
-// Detecta as stacks dos seus repositórios, gera os cards e atualiza o README.md.
+// Detecta as stacks dos seus repositórios, gera as imagens do perfil e atualiza o README.md.
 // Roda no GitHub Actions (Node 20+), sem dependências.
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 
@@ -20,6 +20,10 @@ const LANGS = {
   Astro: "astro", Solidity: "solidity", HCL: "terraform", "Jupyter Notebook": "py",
 };
 
+// Linguagens de programação "de verdade" (exclui HTML, CSS, SQL, scripts de shell)
+const PROGRAMMING = ["TypeScript", "JavaScript", "Python", "Go", "PHP", "Java", "C#", "Rust", "Dart", "Kotlin", "Swift", "Ruby", "Elixir", "Scala", "C", "C++"];
+const SHORT = { TypeScript: "TS", JavaScript: "JS" };
+
 // Cores das linguagens (mesmas do GitHub) para o card de linguagens
 const LANG_COLORS = {
   JavaScript: "#f1e05a", TypeScript: "#3178c6", Python: "#3572A5", PHP: "#4F5D95",
@@ -29,6 +33,7 @@ const LANG_COLORS = {
   Dart: "#00B4AB", Kotlin: "#A97BFF", Swift: "#F05138", Ruby: "#701516", C: "#555555",
   "C++": "#f34b7d", Lua: "#000080", Elixir: "#6e4a7e", Scala: "#c22d40",
   Astro: "#ff5a03", Solidity: "#AA6746", HCL: "#844FBA", "Jupyter Notebook": "#DA5B0B",
+  PLpgSQL: "#336790",
 };
 
 // Dependência -> ícone
@@ -61,7 +66,7 @@ const KNOWN_TOPICS = new Set([
   "sqlite", "redis", "firebase", "supabase", "rabbitmq", "kafka", "flutter",
 ]);
 
-// Nome legível de cada ícone, para a coluna de stack dos trabalhos selecionados
+// Nome legível de cada ícone, para os chips de stack dos produtos
 const LABELS = {
   ts: "TypeScript", js: "JavaScript", py: "Python", go: "Go", php: "PHP", nodejs: "Node.js",
   nestjs: "NestJS", fastapi: "FastAPI", express: "Express", nextjs: "Next.js", react: "React",
@@ -70,13 +75,14 @@ const LABELS = {
   laravel: "Laravel", django: "Django", flask: "Flask", graphql: "GraphQL", vite: "Vite",
 };
 
-const HEADERS = {
-  "User-Agent": "profile-readme-updater",
-  ...(TOKEN ? { Authorization: `Bearer ${TOKEN}` } : {}),
-};
-
 async function gh(path, accept = "application/vnd.github+json") {
-  const res = await fetch(`https://api.github.com${path}`, { headers: { ...HEADERS, Accept: accept } });
+  const res = await fetch(`https://api.github.com${path}`, {
+    headers: {
+      Accept: accept,
+      "User-Agent": "profile-readme-updater",
+      ...(TOKEN ? { Authorization: `Bearer ${TOKEN}` } : {}),
+    },
+  });
   if (res.status === 404) return null;
   if (!res.ok) throw new Error(`${res.status} em ${path}: ${await res.text()}`);
   return accept.includes("raw") ? res.text() : res.json();
@@ -157,16 +163,140 @@ function replaceBlock(md, name, content) {
   return md.replace(re, `$1\n${content}\n$2`);
 }
 
-// ---------- Cards SVG (mesmo estilo do banner) ----------
+// ---------- Imagens SVG (todas no mesmo estilo) ----------
 
 const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
 const fmt = (n) => n.toLocaleString("pt-BR");
+const slug = (s) => s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+const FONT = "'Segoe UI', 'Helvetica Neue', Ubuntu, Arial, sans-serif";
+const MONO = "'Cascadia Code', 'SFMono-Regular', Consolas, 'Liberation Mono', monospace";
+const ACCENT = `<linearGradient id="accent" x1="0" x2="1"><stop offset="0" stop-color="#7F00FF"/><stop offset="1" stop-color="#00D4FF"/></linearGradient>`;
+
+function wrap(text, max) {
+  const lines = [];
+  let line = "";
+  for (const word of String(text).split(/\s+/)) {
+    if (line && `${line} ${word}`.length > max) {
+      lines.push(line);
+      line = word;
+    } else {
+      line = line ? `${line} ${word}` : word;
+    }
+  }
+  if (line) lines.push(line);
+  return lines;
+}
+
+function headerSvg(profile, stack) {
+  const stackLine = stack.map((s) => `<tspan fill="#a5d6ff">"${esc(s)}"</tspan>`).join(", ");
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="320" viewBox="0 0 1200 320" role="img" aria-label="${esc(`${profile.name} · ${profile.role}`)}">
+<defs>
+${ACCENT}
+<radialGradient id="glow" cx="0.82" cy="0.15" r="0.7"><stop offset="0" stop-color="#7F00FF" stop-opacity="0.35"/><stop offset="1" stop-color="#7F00FF" stop-opacity="0"/></radialGradient>
+<pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse"><path d="M32 0H0V32" fill="none" stroke="#ffffff" stroke-opacity="0.045"/></pattern>
+<clipPath id="frame"><rect width="1200" height="320" rx="16"/></clipPath>
+</defs>
+<style>
+.sans{font-family:${FONT}}
+.mono{font-family:${MONO};font-size:15px;fill:#c9d1d9}
+.in{opacity:0;animation:in .8s ease forwards}
+@keyframes in{to{opacity:1}}
+</style>
+<g clip-path="url(#frame)">
+<rect width="1200" height="320" fill="#0D1117"/>
+<rect width="1200" height="320" fill="url(#grid)"/>
+<rect width="1200" height="320" fill="url(#glow)"/>
+<rect y="316" width="1200" height="4" fill="url(#accent)"/>
+</g>
+<rect x="64" y="76" width="56" height="4" rx="2" fill="url(#accent)"/>
+<text x="64" y="142" class="sans" font-size="56" font-weight="700" fill="#ffffff">${esc(profile.name)}</text>
+<text x="64" y="188" class="sans" font-size="24" font-weight="600" fill="#00D4FF">${esc(profile.role)}</text>
+<text x="64" y="232" class="sans" font-size="18" fill="#8b949e">${esc(profile.tagline)}</text>
+<text x="64" y="268" class="sans" font-size="15" fill="#6e7681">${esc(profile.location)}</text>
+<g transform="translate(772 56)">
+<rect width="364" height="208" rx="12" fill="#161B22" stroke="#30363d"/>
+<circle cx="22" cy="22" r="5" fill="#ff5f57"/><circle cx="40" cy="22" r="5" fill="#febc2e"/><circle cx="58" cy="22" r="5" fill="#28c840"/>
+<text x="22" y="66" class="mono in" style="animation-delay:.2s"><tspan fill="#ff7b72">const</tspan> <tspan fill="#d2a8ff">eSolucoes</tspan> = {</text>
+<text x="22" y="92" class="mono in" style="animation-delay:.5s">  foco: <tspan fill="#a5d6ff">"problemas reais"</tspan>,</text>
+<text x="22" y="118" class="mono in" style="animation-delay:.8s">  stack: [${stackLine}],</text>
+<text x="22" y="144" class="mono in" style="animation-delay:1.1s">  ia: <tspan fill="#79c0ff">true</tspan>,</text>
+<text x="22" y="170" class="mono in" style="animation-delay:1.4s">  automatiza: <tspan fill="#79c0ff">true</tspan>,</text>
+<text x="22" y="194" class="mono in" style="animation-delay:1.7s">};</text>
+<rect x="46" y="181" width="9" height="17" fill="#00D4FF"><animate attributeName="opacity" values="1;1;0;0" keyTimes="0;0.5;0.5;1" dur="1.1s" repeatCount="indefinite"/></rect>
+</g>
+</svg>
+`;
+}
+
+function productCard(p) {
+  const W = 440;
+  const H = 220;
+  const desc = wrap(p.description ?? "", 54).slice(0, 3);
+  let x = 24;
+  const chips = [];
+  for (const c of p.chips.slice(0, 6)) {
+    const w = Math.round(c.length * 7.4 + 22);
+    if (x + w > W - 24) break;
+    chips.push(`<rect x="${x}" y="${H - 50}" width="${w}" height="26" rx="13" fill="#161B22" stroke="#30363d"/>` +
+      `<text x="${x + w / 2}" y="${H - 32}" class="c" text-anchor="middle">${esc(c)}</text>`);
+    x += w + 8;
+  }
+  const status = p.active
+    ? `<circle cx="${W - 120}" cy="44" r="4" fill="#3fb950"><animate attributeName="opacity" values="1;0.35;1" dur="2s" repeatCount="indefinite"/></circle>` +
+      `<text x="${W - 24}" y="49" class="s" text-anchor="end">Em evolução</text>`
+    : "";
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(`${p.name}: ${p.description ?? ""}`)}">
+<defs>${ACCENT}</defs>
+<style>
+.g{font:600 11px ${FONT};fill:#00D4FF;letter-spacing:1.2px}
+.n{font:700 22px ${FONT};fill:#ffffff}
+.d{font:400 14px ${FONT};fill:#8b949e}
+.c{font:500 12px ${FONT};fill:#c9d1d9}
+.s{font:500 12px ${FONT};fill:#3fb950}
+</style>
+<rect x="0.5" y="0.5" width="${W - 1}" height="${H - 1}" rx="12" fill="#0D1117" stroke="#30363d"/>
+<rect x="24" y="24" width="32" height="3" rx="1.5" fill="url(#accent)"/>
+${status}
+<text x="24" y="52" class="g">${esc((p.tag ?? "").toUpperCase())}</text>
+<text x="24" y="82" class="n">${esc(p.name)}</text>
+${desc.map((l, i) => `<text x="24" y="${112 + i * 20}" class="d">${esc(l)}</text>`).join("\n")}
+${chips.join("\n")}
+</svg>
+`;
+}
+
+function impactSvg(items) {
+  const W = 900;
+  const H = 140;
+  const colW = (W - 48) / items.length;
+  const cells = items
+    .map(({ value, label }, i) => {
+      const cx = 24 + colW * i + colW / 2;
+      const divider = i ? `<line x1="${24 + colW * i}" x2="${24 + colW * i}" y1="36" y2="${H - 36}" stroke="#21262d"/>` : "";
+      return `${divider}<g class="m" style="animation-delay:${(i * 0.25).toFixed(2)}s">` +
+        `<text x="${cx}" y="74" class="v" text-anchor="middle">${esc(value)}</text>` +
+        `<text x="${cx}" y="102" class="l" text-anchor="middle">${esc(label)}</text></g>`;
+    })
+    .join("\n");
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(items.map((i) => `${i.value} ${i.label}`).join(", "))}">
+<defs>${ACCENT}</defs>
+<style>
+.v{font:700 34px ${FONT};fill:url(#accent)}
+.l{font:400 14px ${FONT};fill:#8b949e}
+.m{opacity:0;animation:in .9s ease forwards}
+@keyframes in{to{opacity:1}}
+</style>
+<rect x="0.5" y="0.5" width="${W - 1}" height="${H - 1}" rx="12" fill="#0D1117" stroke="#30363d"/>
+${cells}
+</svg>
+`;
+}
+
 const CARD_W = 440;
 const CARD_H = 210;
-const FONT = "'Segoe UI', 'Helvetica Neue', Ubuntu, Arial, sans-serif";
 
 const card = (title, body) => `<svg xmlns="http://www.w3.org/2000/svg" width="${CARD_W}" height="${CARD_H}" viewBox="0 0 ${CARD_W} ${CARD_H}" role="img" aria-label="${esc(title)}">
-<defs><linearGradient id="accent" x1="0" x2="1"><stop offset="0" stop-color="#7F00FF"/><stop offset="1" stop-color="#00D4FF"/></linearGradient></defs>
+<defs>${ACCENT}</defs>
 <style>
 .t{font:600 17px ${FONT};fill:#ffffff}
 .l{font:400 14px ${FONT};fill:#8b949e}
@@ -220,26 +350,16 @@ ${legend}`,
   );
 }
 
-function statsRows(repos, langCount, techCount) {
-  const yearAgo = Date.now() - 365 * 24 * 60 * 60 * 1000;
-  const active = repos.filter((r) => new Date(r.pushed_at) > yearAgo).length;
-  return [
-    ["Repositórios (incluindo privados)", fmt(repos.length)],
-    ["Projetos ativos no último ano", fmt(active)],
-    ["Linguagens", fmt(langCount)],
-    ["Tecnologias detectadas", fmt(techCount)],
-  ];
-}
-
 // ---------- Coleta ----------
 
 if (!USE_PAT) {
-  console.log("::warning::GH_PAT não configurado: só repositórios e contribuições públicas entram no README.");
+  console.log("::warning::GH_PAT não configurado: só repositórios públicos entram no README.");
 }
 
 const repos = await listRepos();
 const results = await mapLimit(repos, 5, detectRepo);
 const detected = new Map(repos.map((r, i) => [r.full_name, results[i]]));
+const byName = new Map(repos.map((r) => [r.name.toLowerCase(), r]));
 
 // Linguagens ordenadas por bytes de código; ferramentas por nº de repositórios
 const langBytes = {};
@@ -265,16 +385,55 @@ const toolIds = [
 
 const max = config.maxIcons ?? 40;
 const allIds = [...langIds, ...toolIds].slice(0, max);
-
-// ---------- Cards ----------
-
-await mkdir("assets", { recursive: true });
-await writeFile("assets/stats.svg", statsCard(statsRows(repos, Object.keys(langNameBytes).length, allIds.length)));
 const topLangs = Object.entries(langNameBytes)
   .filter(([name]) => !ignore.has(LANGS[name] ?? name))
-  .sort((a, b) => b[1] - a[1])
-  .slice(0, 8);
-await writeFile("assets/langs.svg", langsCard(topLangs));
+  .sort((a, b) => b[1] - a[1]);
+
+// Stack de um repositório, em nomes legíveis (linguagens por volume + frameworks)
+function repoStack(r) {
+  const d = detected.get(r.full_name);
+  if (!d) return [];
+  const langs = Object.entries(d.langs)
+    .sort((a, b) => b[1] - a[1])
+    .map(([name]) => name)
+    .filter((name) => PROGRAMMING.includes(name))
+    .slice(0, 2);
+  const tools = [...d.tools].filter((t) => LABELS[t] && t !== "nodejs").map((t) => LABELS[t]);
+  return [...new Set([...langs, ...tools])];
+}
+
+// Cada item de "featured" é descrito no config; com "repo", os chips mostram a stack
+// detectada nesse repositório (que pode ser privado, o código não é exposto) e o
+// selo "Em evolução" aparece se ele recebeu commits nos últimos 30 dias.
+const monthAgo = Date.now() - 30 * 24 * 60 * 60 * 1000;
+const featuredItems = (config.featured ?? []).map((item) => {
+  const r = item.repo && byName.get(item.repo.toLowerCase());
+  const stack = r ? repoStack(r) : [];
+  return {
+    ...item,
+    chips: stack.length ? stack : item.chips ?? [],
+    active: Boolean(r && new Date(r.pushed_at) > monthAgo),
+    full_name: r?.full_name,
+  };
+});
+
+// ---------- Imagens ----------
+
+await mkdir("assets/products", { recursive: true });
+
+const bannerStack = topLangs.map(([name]) => name).filter((n) => PROGRAMMING.includes(n)).slice(0, 3).map((n) => SHORT[n] ?? n);
+if (config.profile) await writeFile("assets/header.svg", headerSvg(config.profile, bannerStack));
+if (config.impact?.length) await writeFile("assets/impact.svg", impactSvg(config.impact));
+for (const p of featuredItems) await writeFile(`assets/products/${slug(p.name)}.svg`, productCard(p));
+
+const yearAgo = Date.now() - 365 * 24 * 60 * 60 * 1000;
+await writeFile("assets/stats.svg", statsCard([
+  ["Repositórios (incluindo privados)", fmt(repos.length)],
+  ["Projetos ativos no último ano", fmt(repos.filter((r) => new Date(r.pushed_at) > yearAgo).length)],
+  ["Linguagens", fmt(topLangs.length)],
+  ["Tecnologias detectadas", fmt(allIds.length)],
+]));
+await writeFile("assets/langs.svg", langsCard(topLangs.slice(0, 8)));
 
 // ---------- Seções do README ----------
 
@@ -299,59 +458,20 @@ const stacks = [
   "</table>",
 ].join("\n");
 
-const cell = (s) => (s ?? "—").replace(/\|/g, "\\|");
-const code = (items) => items.filter(Boolean).map((t) => `\`${t}\``).join(" ");
-const byName = new Map(repos.map((r) => [r.name.toLowerCase(), r]));
-
-// Stack de um repositório, em nomes legíveis (linguagens por volume + frameworks)
-function repoStack(r) {
-  const d = detected.get(r.full_name);
-  if (!d) return [];
-  const langs = Object.entries(d.langs)
-    .sort((a, b) => b[1] - a[1])
-    .map(([name]) => name)
-    .filter((name) => ["TypeScript", "JavaScript", "Python", "Go", "PHP", "Java", "C#", "Rust", "Dart", "Kotlin"].includes(name))
-    .slice(0, 2);
-  const tools = [...d.tools].filter((t) => LABELS[t] && t !== "nodejs").map((t) => LABELS[t]);
-  return [...new Set([...langs, ...tools])].slice(0, 5);
-}
-
-// Cada item de "featured" pode ser:
-//  - o nome de um repositório: descrição e stack vêm do GitHub (link só se for público)
-//  - um objeto { name, description, url, repo?, stack? }: descrito à mão; com "repo",
-//    a stack é detectada nesse repositório (que pode ser privado, o código não é exposto)
-const featuredItems = (config.featured ?? [])
-  .map((item) => {
-    if (typeof item === "object") {
-      const r = item.repo && byName.get(item.repo.toLowerCase());
-      return { ...item, stack: item.stack ?? (r ? repoStack(r) : []), full_name: r?.full_name };
-    }
-    const r = byName.get(String(item).toLowerCase());
-    if (!r) return null;
-    return {
-      name: r.name,
-      url: r.homepage || (r.private ? null : r.html_url),
-      description: r.description,
-      stack: repoStack(r),
-      full_name: r.full_name,
-    };
-  })
-  .filter((p) => p?.name);
-
-const withStack = featuredItems.some((p) => p.stack.length);
 const featured = featuredItems.length
   ? [
-      "### Produtos e trabalhos selecionados",
+      "### Produtos",
       "",
-      withStack ? "| Produto | O que é | Stack |" : "| Produto | O que é |",
-      withStack ? "| --- | --- | --- |" : "| --- | --- |",
+      "<p>",
       ...featuredItems.map((p) => {
-        const name = p.url ? `[**${cell(p.name)}**](${p.url})` : `**${cell(p.name)}**`;
-        return `| ${name} | ${cell(p.description)} |` + (withStack ? ` ${code(p.stack)} |` : "");
+        const img = `<img src="./assets/products/${slug(p.name)}.svg" width="49%" alt="${esc(`${p.name}: ${p.description ?? ""}`)}" />`;
+        return p.url ? `  <a href="${esc(p.url)}">${img}</a>` : `  ${img}`;
       }),
+      "</p>",
     ].join("\n")
   : "";
 
+const cell = (s) => (s ?? "—").replace(/\|/g, "\\|");
 const featuredSet = new Set(featuredItems.map((p) => p.full_name).filter(Boolean));
 const recent = [...repos]
   .filter((r) => !r.private && !featuredSet.has(r.full_name))
@@ -376,4 +496,4 @@ md = replaceBlock(md, "PROJECTS", projects);
 await writeFile("README.md", md);
 
 console.log(`OK: ${repos.length} repos | langs: ${langIds.join(", ")} | tools: ${toolIds.join(", ")}`);
-console.log(`Destaques: ${featuredItems.map((p) => `${p.name}${p.full_name ? ` (repo ${p.full_name})` : ""}`).join(", ")}`);
+console.log(`Produtos: ${featuredItems.map((p) => `${p.name}${p.full_name ? ` (repo ${p.full_name})` : ""}`).join(", ")}`);
