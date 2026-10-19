@@ -8,7 +8,7 @@
 
 <p>
   <img src="https://img.shields.io/badge/Meta_Business_Partner-0D1117?style=flat-square&logo=meta&logoColor=white" alt="Meta Business Partner" />
-  <img src="https://img.shields.io/badge/OpenAI_Partner-0D1117?style=flat-square&logo=openai&logoColor=white" alt="OpenAI Partner" />
+  <img src="https://img.shields.io/badge/OpenAI_Partner-0D1117?style=flat-square&logo=openaigym&logoColor=white" alt="OpenAI Partner" />
   <img src="https://img.shields.io/badge/Google_Play_Developer-0D1117?style=flat-square&logo=googleplay&logoColor=white" alt="Google Play Developer" />
   <img src="https://img.shields.io/badge/Apple_Developer-0D1117?style=flat-square&logo=apple&logoColor=white" alt="Apple Developer" />
 </p>
