@@ -1,5 +1,29 @@
 {
-  "featured": [],
+  "featured": [
+    {
+      "name": "eSolu Chat",
+      "repo": "esolu-chat",
+      "url": "https://esolu.com.br/pt/produtos/esolu-chat",
+      "description": "Plataforma de atendimento multicanal (WhatsApp, Instagram e Facebook) com agentes de IA, CRM e relatórios"
+    },
+    {
+      "name": "Camellium",
+      "repo": "camellium",
+      "url": "https://esolu.com.br/pt/produtos/camellium",
+      "description": "Suíte jurídica modular: gestão de escritório, calculadoras, chat e agente de IA para advogados"
+    },
+    {
+      "name": "Vellumi",
+      "repo": "vellumi",
+      "url": "https://esolu.com.br/pt/produtos/salao-ai",
+      "description": "Sistema para salões de beleza com agenda, fichas, caixa e atendente de IA que marca horários pelo WhatsApp"
+    },
+    {
+      "name": "Agentes de IA comercial",
+      "url": "https://esolu.com.br/pt/servicos/agentes-ia-comercial-juridico",
+      "description": "Equipes comerciais com IA que atendem, qualificam e fecham negócios 24/7"
+    }
+  ],
   "extra": ["git", "github", "vscode", "linux"],
   "ignore": [],
   "maxIcons": 40,
