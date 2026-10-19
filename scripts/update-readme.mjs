@@ -172,10 +172,27 @@ const max = config.maxIcons ?? 40;
 
 // ---------- Seções do README ----------
 
+// Agrupa os ícones por área; o que não estiver listado cai em "Ferramentas"
+const CATEGORIES = [
+  ["Linguagens", ["ts", "js", "py", "php", "java", "cs", "go", "rust", "dart", "kotlin", "swift", "ruby", "c", "cpp", "lua", "elixir", "scala", "solidity"]],
+  ["Front-end", ["react", "nextjs", "vue", "nuxtjs", "svelte", "angular", "astro", "html", "css", "sass", "tailwind", "styledcomponents", "bootstrap", "redux", "threejs", "vite", "webpack", "electron", "flutter"]],
+  ["Back-end", ["nodejs", "express", "nestjs", "django", "flask", "fastapi", "laravel", "symfony", "graphql", "wordpress"]],
+  ["Dados", ["postgres", "mysql", "mongodb", "redis", "sqlite", "prisma", "sequelize", "firebase", "supabase", "rabbitmq", "kafka", "tensorflow", "pytorch"]],
+  ["Infra & DevOps", ["docker", "kubernetes", "aws", "gcp", "azure", "nginx", "vercel", "netlify", "heroku", "cloudflare", "terraform", "githubactions", "linux", "bash", "powershell"]],
+  ["Testes", ["jest", "vitest", "cypress"]],
+];
+const allIds = [...langIds, ...toolIds].slice(0, max);
+const groups = CATEGORIES.map(([label, ids]) => [label, allIds.filter((id) => ids.includes(id))]);
+const known = new Set(CATEGORIES.flatMap(([, ids]) => ids));
+groups.push(["Ferramentas", allIds.filter((id) => !known.has(id))]);
+
 const stacks = [
-  langIds.length && `<img src="${icons(langIds.slice(0, max))}" alt="Linguagens" />`,
-  toolIds.length && `<img src="${icons(toolIds.slice(0, max))}" alt="Frameworks, bancos e ferramentas" />`,
-].filter(Boolean).join("<br/><br/>\n");
+  "<table>",
+  ...groups
+    .filter(([, ids]) => ids.length)
+    .map(([label, ids]) => `  <tr><td><b>${label.replace("&", "&amp;")}</b></td><td><img src="${icons(ids)}" alt="${ids.join(", ")}" /></td></tr>`),
+  "</table>",
+].join("\n");
 
 const cell = (s) => (s ?? "—").replace(/\|/g, "\\|");
 const code = (items) => items.filter(Boolean).map((t) => `\`${t}\``).join(" ") || "—";
