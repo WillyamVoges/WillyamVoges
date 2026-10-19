@@ -1,4 +1,4 @@
-// Detecta as stacks dos seus repositórios, gera os cards de números e atualiza o README.md.
+// Detecta as stacks dos seus repositórios, gera os cards e atualiza o README.md.
 // Roda no GitHub Actions (Node 20+), sem dependências.
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 
@@ -80,17 +80,6 @@ async function gh(path, accept = "application/vnd.github+json") {
   if (res.status === 404) return null;
   if (!res.ok) throw new Error(`${res.status} em ${path}: ${await res.text()}`);
   return accept.includes("raw") ? res.text() : res.json();
-}
-
-async function graphql(query, variables) {
-  const res = await fetch("https://api.github.com/graphql", {
-    method: "POST",
-    headers: { ...HEADERS, "Content-Type": "application/json" },
-    body: JSON.stringify({ query, variables }),
-  });
-  const json = await res.json();
-  if (!res.ok || json.errors) throw new Error(`GraphQL: ${JSON.stringify(json.errors ?? json)}`);
-  return json.data;
 }
 
 // Executa fn em lotes pequenos para não esbarrar no limite secundário da API
@@ -193,13 +182,13 @@ ${body}
 function statsCard(rows) {
   const body = rows
     .map(([label, value], i) => {
-      const y = 88 + i * 26;
+      const y = 92 + i * 30;
       return `<text x="24" y="${y}" class="l">${esc(label)}</text>` +
         `<text x="${CARD_W - 24}" y="${y}" class="v" text-anchor="end">${esc(value)}</text>` +
-        (i < rows.length - 1 ? `<line x1="24" x2="${CARD_W - 24}" y1="${y + 9}" y2="${y + 9}" stroke="#21262d"/>` : "");
+        (i < rows.length - 1 ? `<line x1="24" x2="${CARD_W - 24}" y1="${y + 11}" y2="${y + 11}" stroke="#21262d"/>` : "");
     })
     .join("\n");
-  return card("Atividade no GitHub", body);
+  return card("Visão geral", body);
 }
 
 function langsCard(langs) {
@@ -231,26 +220,13 @@ ${legend}`,
   );
 }
 
-async function fetchStats(repos, techCount) {
-  const data = await graphql(
-    `query($login: String!) {
-      user(login: $login) {
-        contributionsCollection {
-          totalCommitContributions
-          contributionCalendar { totalContributions }
-        }
-      }
-    }`,
-    { login: OWNER },
-  );
-  const c = data.user.contributionsCollection;
+function statsRows(repos, langCount, techCount) {
   const yearAgo = Date.now() - 365 * 24 * 60 * 60 * 1000;
   const active = repos.filter((r) => new Date(r.pushed_at) > yearAgo).length;
   return [
-    ["Contribuições nos últimos 12 meses", fmt(c.contributionCalendar.totalContributions)],
-    ["Commits nos últimos 12 meses", fmt(c.totalCommitContributions)],
     ["Repositórios (incluindo privados)", fmt(repos.length)],
     ["Projetos ativos no último ano", fmt(active)],
+    ["Linguagens", fmt(langCount)],
     ["Tecnologias detectadas", fmt(techCount)],
   ];
 }
@@ -293,7 +269,7 @@ const allIds = [...langIds, ...toolIds].slice(0, max);
 // ---------- Cards ----------
 
 await mkdir("assets", { recursive: true });
-await writeFile("assets/stats.svg", statsCard(await fetchStats(repos, allIds.length)));
+await writeFile("assets/stats.svg", statsCard(statsRows(repos, Object.keys(langNameBytes).length, allIds.length)));
 const topLangs = Object.entries(langNameBytes)
   .filter(([name]) => !ignore.has(LANGS[name] ?? name))
   .sort((a, b) => b[1] - a[1])
@@ -371,7 +347,7 @@ const featured = featuredItems.length
       withStack ? "| --- | --- | --- |" : "| --- | --- |",
       ...featuredItems.map((p) => {
         const name = p.url ? `[**${cell(p.name)}**](${p.url})` : `**${cell(p.name)}**`;
-        return `| ${name} | ${cell(p.description)} |` + (withStack ? ` ${code(p.stack) || "—"} |` : "");
+        return `| ${name} | ${cell(p.description)} |` + (withStack ? ` ${code(p.stack)} |` : "");
       }),
     ].join("\n")
   : "";
