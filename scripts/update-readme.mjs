@@ -198,7 +198,7 @@ ${ACCENT}
 </defs>
 <style>
 .sans{font-family:${FONT}}
-.mono{font-family:${MONO};font-size:15px;fill:#c9d1d9}
+.mono{font-family:${MONO};font-size:15px;fill:#c9d1d9;white-space:pre}
 .in{opacity:0;animation:in .8s ease forwards}
 @keyframes in{to{opacity:1}}
 </style>
