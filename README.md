@@ -16,10 +16,10 @@ Sou fundador da [eSoluções](https://esolu.com.br), onde construo produtos e si
 
 | Produto | O que é | Stack |
 | --- | --- | --- |
-| [**eSolu Chat**](https://esolu.com.br/pt/produtos/esolu-chat) | Plataforma de atendimento multicanal (WhatsApp, Instagram e Facebook) com agentes de IA, CRM e relatórios | — |
+| [**eSolu Chat**](https://esolu.com.br/pt/produtos/esolu-chat) | Plataforma de atendimento multicanal (WhatsApp, Instagram e Facebook) com agentes de IA, CRM e relatórios |  |
 | [**Camellium**](https://esolu.com.br/pt/produtos/camellium) | Suíte jurídica modular: gestão de escritório, calculadoras, chat e agente de IA para advogados | `Python` `TypeScript` |
 | [**Vellumi**](https://esolu.com.br/pt/produtos/salao-ai) | Sistema para salões de beleza com agenda, fichas, caixa e atendente de IA que marca horários pelo WhatsApp | `TypeScript` `JavaScript` `NestJS` `Prisma` `Redis` |
-| [**Agentes de IA comercial**](https://esolu.com.br/pt/servicos/agentes-ia-comercial-juridico) | Equipes comerciais com IA que atendem, qualificam e fecham negócios 24/7 | — |
+| [**Agentes de IA comercial**](https://esolu.com.br/pt/servicos/agentes-ia-comercial-juridico) | Equipes comerciais com IA que atendem, qualificam e fecham negócios 24/7 |  |
 <!-- FEATURED:END -->
 
 ### Impacto da plataforma eSolu
