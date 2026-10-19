@@ -4,7 +4,13 @@
   <a href="https://esolu.com.br"><img src="https://img.shields.io/badge/esolu.com.br-161B22?style=for-the-badge&logo=googlechrome&logoColor=00D4FF" alt="Site" /></a>
   <a href="mailto:willyam@esolu.com.br"><img src="https://img.shields.io/badge/willyam@esolu.com.br-161B22?style=for-the-badge&logo=gmail&logoColor=00D4FF" alt="Email" /></a>
   <a href="https://instagram.com/esolu_"><img src="https://img.shields.io/badge/@esolu__-161B22?style=for-the-badge&logo=instagram&logoColor=00D4FF" alt="Instagram" /></a>
-  <img src="https://img.shields.io/badge/Meta_Business_Partner-161B22?style=for-the-badge&logo=meta&logoColor=00D4FF" alt="Meta Business Partner" />
+</p>
+
+<p>
+  <img src="https://img.shields.io/badge/Meta_Business_Partner-0D1117?style=flat-square&logo=meta&logoColor=white" alt="Meta Business Partner" />
+  <img src="https://img.shields.io/badge/OpenAI_Partner-0D1117?style=flat-square&logo=openai&logoColor=white" alt="OpenAI Partner" />
+  <img src="https://img.shields.io/badge/Google_Play_Developer-0D1117?style=flat-square&logo=googleplay&logoColor=white" alt="Google Play Developer" />
+  <img src="https://img.shields.io/badge/Apple_Developer-0D1117?style=flat-square&logo=apple&logoColor=white" alt="Apple Developer" />
 </p>
 
 ### Sobre
