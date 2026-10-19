@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="440" height="210" viewBox="0 0 440 210" role="img" aria-label="Atividade no GitHub">
+<defs><linearGradient id="accent" x1="0" x2="1"><stop offset="0" stop-color="#7F00FF"/><stop offset="1" stop-color="#00D4FF"/></linearGradient></defs>
+<style>
+.t{font:600 17px 'Segoe UI', 'Helvetica Neue', Ubuntu, Arial, sans-serif;fill:#ffffff}
+.l{font:400 14px 'Segoe UI', 'Helvetica Neue', Ubuntu, Arial, sans-serif;fill:#8b949e}
+.v{font:600 14px 'Segoe UI', 'Helvetica Neue', Ubuntu, Arial, sans-serif;fill:#e6edf3}
+</style>
+<rect x="0.5" y="0.5" width="439" height="209" rx="12" fill="#0D1117" stroke="#30363d"/>
+<rect x="24" y="24" width="32" height="3" rx="1.5" fill="url(#accent)"/>
+<text x="24" y="52" class="t">Atividade no GitHub</text>
+<text x="24" y="88" class="l">Contribuições nos últimos 12 meses</text><text x="416" y="88" class="v" text-anchor="end">24</text><line x1="24" x2="416" y1="97" y2="97" stroke="#21262d"/>
+<text x="24" y="114" class="l">Commits nos últimos 12 meses</text><text x="416" y="114" class="v" text-anchor="end">4</text><line x1="24" x2="416" y1="123" y2="123" stroke="#21262d"/>
+<text x="24" y="140" class="l">Repositórios (incluindo privados)</text><text x="416" y="140" class="v" text-anchor="end">10</text><line x1="24" x2="416" y1="149" y2="149" stroke="#21262d"/>
+<text x="24" y="166" class="l">Projetos ativos no último ano</text><text x="416" y="166" class="v" text-anchor="end">6</text><line x1="24" x2="416" y1="175" y2="175" stroke="#21262d"/>
+<text x="24" y="192" class="l">Tecnologias detectadas</text><text x="416" y="192" class="v" text-anchor="end">20</text>
+</svg>

@@ -12,6 +12,14 @@
 Sou fundador da [eSoluções](https://esolu.com.br), onde construo produtos e sistemas sob medida que unem software e IA para resolver problemas reais de negócio, do atendimento ao fechamento de vendas. Atuo do front-end ao deploy e, se um processo pode ser automatizado, ele vai ser.
 
 <!-- FEATURED:START -->
+### Produtos e trabalhos selecionados
+
+| Produto | O que é | Stack |
+| --- | --- | --- |
+| [**eSolu Chat**](https://esolu.com.br/pt/produtos/esolu-chat) | Plataforma de atendimento multicanal (WhatsApp, Instagram e Facebook) com agentes de IA, CRM e relatórios | — |
+| [**Camellium**](https://esolu.com.br/pt/produtos/camellium) | Suíte jurídica modular: gestão de escritório, calculadoras, chat e agente de IA para advogados | `Python` `TypeScript` |
+| [**Vellumi**](https://esolu.com.br/pt/produtos/salao-ai) | Sistema para salões de beleza com agenda, fichas, caixa e atendente de IA que marca horários pelo WhatsApp | `TypeScript` `JavaScript` `NestJS` `Prisma` `Redis` |
+| [**Agentes de IA comercial**](https://esolu.com.br/pt/servicos/agentes-ia-comercial-juridico) | Equipes comerciais com IA que atendem, qualificam e fecham negócios 24/7 | — |
 <!-- FEATURED:END -->
 
 ### Impacto da plataforma eSolu
@@ -35,6 +43,15 @@ Sou fundador da [eSoluções](https://esolu.com.br), onde construo produtos e si
 ### Stack
 
 <!-- STACKS:START -->
+<table>
+  <tr><td><b>Linguagens</b></td><td><img src="https://skillicons.dev/icons?i=ts,py,go,js&theme=dark&perline=14" alt="ts, py, go, js" /></td></tr>
+  <tr><td><b>Front-end</b></td><td><img src="https://skillicons.dev/icons?i=css,html&theme=dark&perline=14" alt="css, html" /></td></tr>
+  <tr><td><b>Back-end</b></td><td><img src="https://skillicons.dev/icons?i=nodejs,fastapi,nestjs&theme=dark&perline=14" alt="nodejs, fastapi, nestjs" /></td></tr>
+  <tr><td><b>Dados</b></td><td><img src="https://skillicons.dev/icons?i=prisma,redis,postgres&theme=dark&perline=14" alt="prisma, redis, postgres" /></td></tr>
+  <tr><td><b>Infra &amp; DevOps</b></td><td><img src="https://skillicons.dev/icons?i=powershell,docker,bash,linux&theme=dark&perline=14" alt="powershell, docker, bash, linux" /></td></tr>
+  <tr><td><b>Testes</b></td><td><img src="https://skillicons.dev/icons?i=vitest&theme=dark&perline=14" alt="vitest" /></td></tr>
+  <tr><td><b>Ferramentas</b></td><td><img src="https://skillicons.dev/icons?i=git,github,vscode&theme=dark&perline=14" alt="git, github, vscode" /></td></tr>
+</table>
 <!-- STACKS:END -->
 
 ### No GitHub
@@ -45,6 +62,7 @@ Sou fundador da [eSoluções](https://esolu.com.br), onde construo produtos e si
 </p>
 
 <!-- PROJECTS:START -->
+
 <!-- PROJECTS:END -->
 
 ### Contato
