@@ -12,14 +12,17 @@ Desenvolvo software sob medida para empresas, do front-end ao deploy. Meu foco �
 - **Banco de dados, infraestrutura e deploy**: aplicações estáveis e fáceis de manter
 
 <!-- FEATURED:START -->
+
 <!-- FEATURED:END -->
 
 ### Stack
 
 <!-- STACKS:START -->
+<img src="https://skillicons.dev/icons?i=git,github,vscode,linux&theme=dark&perline=14" alt="Frameworks, bancos e ferramentas" />
 <!-- STACKS:END -->
 
 <!-- PROJECTS:START -->
+
 <!-- PROJECTS:END -->
 
 ### Contato
