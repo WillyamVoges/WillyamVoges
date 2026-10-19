@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="440" height="220" viewBox="0 0 440 220" role="img" aria-label="eSolu Chat: WhatsApp, Instagram e Facebook em uma única caixa de entrada, com agentes de IA, CRM e relatórios.">
+<defs><linearGradient id="accent" x1="0" x2="1"><stop offset="0" stop-color="#7F00FF"/><stop offset="1" stop-color="#00D4FF"/></linearGradient></defs>
+<style>
+.g{font:600 11px 'Segoe UI', 'Helvetica Neue', Ubuntu, Arial, sans-serif;fill:#00D4FF;letter-spacing:1.2px}
+.n{font:700 22px 'Segoe UI', 'Helvetica Neue', Ubuntu, Arial, sans-serif;fill:#ffffff}
+.d{font:400 14px 'Segoe UI', 'Helvetica Neue', Ubuntu, Arial, sans-serif;fill:#8b949e}
+.c{font:500 12px 'Segoe UI', 'Helvetica Neue', Ubuntu, Arial, sans-serif;fill:#c9d1d9}
+.s{font:500 12px 'Segoe UI', 'Helvetica Neue', Ubuntu, Arial, sans-serif;fill:#3fb950}
+</style>
+<rect x="0.5" y="0.5" width="439" height="219" rx="12" fill="#0D1117" stroke="#30363d"/>
+<rect x="24" y="24" width="32" height="3" rx="1.5" fill="url(#accent)"/>
+
+<text x="24" y="52" class="g">ATENDIMENTO · IA</text>
+<text x="24" y="82" class="n">eSolu Chat</text>
+<text x="24" y="112" class="d">WhatsApp, Instagram e Facebook em uma única caixa de</text>
+<text x="24" y="132" class="d">entrada, com agentes de IA, CRM e relatórios.</text>
+<rect x="24" y="170" width="81" height="26" rx="13" fill="#161B22" stroke="#30363d"/><text x="64.5" y="188" class="c" text-anchor="middle">WhatsApp</text>
+<rect x="113" y="170" width="89" height="26" rx="13" fill="#161B22" stroke="#30363d"/><text x="157.5" y="188" class="c" text-anchor="middle">Instagram</text>
+<rect x="210" y="170" width="81" height="26" rx="13" fill="#161B22" stroke="#30363d"/><text x="250.5" y="188" class="c" text-anchor="middle">Facebook</text>
+<rect x="299" y="170" width="96" height="26" rx="13" fill="#161B22" stroke="#30363d"/><text x="347" y="188" class="c" text-anchor="middle">Agentes IA</text>
+</svg>

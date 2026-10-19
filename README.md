@@ -18,14 +18,14 @@
 Sou fundador da [eSoluções](https://esolu.com.br), onde construo produtos e sistemas sob medida que unem software e IA para resolver problemas reais de negócio, do atendimento ao fechamento de vendas. Atuo do front-end ao deploy e, se um processo pode ser automatizado, ele vai ser.
 
 <!-- FEATURED:START -->
-### Produtos e trabalhos selecionados
+### Produtos
 
-| Produto | O que é | Stack |
-| --- | --- | --- |
-| [**eSolu Chat**](https://esolu.com.br/pt/produtos/esolu-chat) | Plataforma de atendimento multicanal (WhatsApp, Instagram e Facebook) com agentes de IA, CRM e relatórios |  |
-| [**Camellium**](https://esolu.com.br/pt/produtos/camellium) | Suíte jurídica modular: gestão de escritório, calculadoras, chat e agente de IA para advogados | `Python` `TypeScript` |
-| [**Vellumi**](https://esolu.com.br/pt/produtos/salao-ai) | Sistema para salões de beleza com agenda, fichas, caixa e atendente de IA que marca horários pelo WhatsApp | `TypeScript` `JavaScript` `NestJS` `Prisma` `Redis` |
-| [**Agentes de IA comercial**](https://esolu.com.br/pt/servicos/agentes-ia-comercial-juridico) | Equipes comerciais com IA que atendem, qualificam e fecham negócios 24/7 |  |
+<p>
+  <a href="https://esolu.com.br/pt/produtos/esolu-chat"><img src="./assets/products/esolu-chat.svg" width="49%" alt="eSolu Chat: WhatsApp, Instagram e Facebook em uma única caixa de entrada, com agentes de IA, CRM e relatórios." /></a>
+  <a href="https://esolu.com.br/pt/produtos/camellium"><img src="./assets/products/camellium.svg" width="49%" alt="Camellium: Suíte jurídica modular: gestão do escritório, calculadoras, chat e agente de IA treinados para a rotina do advogado." /></a>
+  <a href="https://esolu.com.br/pt/produtos/salao-ai"><img src="./assets/products/vellumi.svg" width="49%" alt="Vellumi: Gestão completa para salões: agenda, fichas de clientes, caixa e comissões, com uma atendente de IA que agenda pelo WhatsApp." /></a>
+  <a href="https://esolu.com.br/pt/servicos/agentes-ia-comercial-juridico"><img src="./assets/products/agentes-de-ia-comercial.svg" width="49%" alt="Agentes de IA Comercial: Agentes que atendem, qualificam leads e fecham negócios 24 horas por dia, adaptados a qualquer segmento." /></a>
+</p>
 <!-- FEATURED:END -->
 
 ### Impacto da plataforma eSolu

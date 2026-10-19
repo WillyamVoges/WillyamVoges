@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="440" height="220" viewBox="0 0 440 220" role="img" aria-label="Agentes de IA Comercial: Agentes que atendem, qualificam leads e fecham negócios 24 horas por dia, adaptados a qualquer segmento.">
+<defs><linearGradient id="accent" x1="0" x2="1"><stop offset="0" stop-color="#7F00FF"/><stop offset="1" stop-color="#00D4FF"/></linearGradient></defs>
+<style>
+.g{font:600 11px 'Segoe UI', 'Helvetica Neue', Ubuntu, Arial, sans-serif;fill:#00D4FF;letter-spacing:1.2px}
+.n{font:700 22px 'Segoe UI', 'Helvetica Neue', Ubuntu, Arial, sans-serif;fill:#ffffff}
+.d{font:400 14px 'Segoe UI', 'Helvetica Neue', Ubuntu, Arial, sans-serif;fill:#8b949e}
+.c{font:500 12px 'Segoe UI', 'Helvetica Neue', Ubuntu, Arial, sans-serif;fill:#c9d1d9}
+.s{font:500 12px 'Segoe UI', 'Helvetica Neue', Ubuntu, Arial, sans-serif;fill:#3fb950}
+</style>
+<rect x="0.5" y="0.5" width="439" height="219" rx="12" fill="#0D1117" stroke="#30363d"/>
+<rect x="24" y="24" width="32" height="3" rx="1.5" fill="url(#accent)"/>
+
+<text x="24" y="52" class="g">VENDAS · IA</text>
+<text x="24" y="82" class="n">Agentes de IA Comercial</text>
+<text x="24" y="112" class="d">Agentes que atendem, qualificam leads e fecham</text>
+<text x="24" y="132" class="d">negócios 24 horas por dia, adaptados a qualquer</text>
+<text x="24" y="152" class="d">segmento.</text>
+<rect x="24" y="170" width="103" height="26" rx="13" fill="#161B22" stroke="#30363d"/><text x="75.5" y="188" class="c" text-anchor="middle">Atendimento</text>
+<rect x="135" y="170" width="111" height="26" rx="13" fill="#161B22" stroke="#30363d"/><text x="190.5" y="188" class="c" text-anchor="middle">Qualificação</text>
+<rect x="254" y="170" width="103" height="26" rx="13" fill="#161B22" stroke="#30363d"/><text x="305.5" y="188" class="c" text-anchor="middle">Vendas 24/7</text>
+</svg>

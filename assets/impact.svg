@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="140" viewBox="0 0 900 140" role="img" aria-label="18 mi+ mensagens processadas, 930 mil+ conversas atendidas, 150 mil+ conversas conduzidas por IA, 5.000+ contratos fechados por IA">
+<defs><linearGradient id="accent" x1="0" x2="1"><stop offset="0" stop-color="#7F00FF"/><stop offset="1" stop-color="#00D4FF"/></linearGradient></defs>
+<style>
+.v{font:700 34px 'Segoe UI', 'Helvetica Neue', Ubuntu, Arial, sans-serif;fill:url(#accent)}
+.l{font:400 14px 'Segoe UI', 'Helvetica Neue', Ubuntu, Arial, sans-serif;fill:#8b949e}
+.m{opacity:0;animation:in .9s ease forwards}
+@keyframes in{to{opacity:1}}
+</style>
+<rect x="0.5" y="0.5" width="899" height="139" rx="12" fill="#0D1117" stroke="#30363d"/>
+<g class="m" style="animation-delay:0.00s"><text x="130.5" y="74" class="v" text-anchor="middle">18 mi+</text><text x="130.5" y="102" class="l" text-anchor="middle">mensagens processadas</text></g>
+<line x1="237" x2="237" y1="36" y2="104" stroke="#21262d"/><g class="m" style="animation-delay:0.25s"><text x="343.5" y="74" class="v" text-anchor="middle">930 mil+</text><text x="343.5" y="102" class="l" text-anchor="middle">conversas atendidas</text></g>
+<line x1="450" x2="450" y1="36" y2="104" stroke="#21262d"/><g class="m" style="animation-delay:0.50s"><text x="556.5" y="74" class="v" text-anchor="middle">150 mil+</text><text x="556.5" y="102" class="l" text-anchor="middle">conversas conduzidas por IA</text></g>
+<line x1="663" x2="663" y1="36" y2="104" stroke="#21262d"/><g class="m" style="animation-delay:0.75s"><text x="769.5" y="74" class="v" text-anchor="middle">5.000+</text><text x="769.5" y="102" class="l" text-anchor="middle">contratos fechados por IA</text></g>
+</svg>
