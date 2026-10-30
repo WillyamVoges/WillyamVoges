@@ -9,13 +9,13 @@
 <rect x="24" y="24" width="32" height="3" rx="1.5" fill="url(#accent)"/>
 <text x="24" y="52" class="t">Linguagens</text>
 <clipPath id="bar"><rect x="24" y="72" width="392" height="8" rx="4"/></clipPath>
-<g clip-path="url(#bar)"><rect x="24.00" y="72" width="204.37" height="8" fill="#3178c6"/><rect x="228.37" y="72" width="156.46" height="8" fill="#3572A5"/><rect x="384.84" y="72" width="9.76" height="8" fill="#663399"/><rect x="394.60" y="72" width="8.18" height="8" fill="#00ADD8"/><rect x="402.78" y="72" width="6.81" height="8" fill="#f1e05a"/><rect x="409.59" y="72" width="3.60" height="8" fill="#336790"/><rect x="413.19" y="72" width="2.60" height="8" fill="#e34c26"/><rect x="415.79" y="72" width="0.21" height="8" fill="#384d54"/></g>
-<circle cx="30" cy="109" r="5" fill="#3178c6"/><text x="42" y="114" class="v">TypeScript <tspan class="l">52,1%</tspan></text>
-<circle cx="230" cy="109" r="5" fill="#3572A5"/><text x="242" y="114" class="v">Python <tspan class="l">39,9%</tspan></text>
-<circle cx="30" cy="135" r="5" fill="#663399"/><text x="42" y="140" class="v">CSS <tspan class="l">2,5%</tspan></text>
-<circle cx="230" cy="135" r="5" fill="#00ADD8"/><text x="242" y="140" class="v">Go <tspan class="l">2,1%</tspan></text>
+<g clip-path="url(#bar)"><rect x="24.00" y="72" width="213.20" height="8" fill="#3178c6"/><rect x="237.20" y="72" width="149.33" height="8" fill="#3572A5"/><rect x="386.53" y="72" width="9.14" height="8" fill="#663399"/><rect x="395.67" y="72" width="7.72" height="8" fill="#00ADD8"/><rect x="403.39" y="72" width="6.56" height="8" fill="#f1e05a"/><rect x="409.95" y="72" width="3.40" height="8" fill="#336790"/><rect x="413.35" y="72" width="2.45" height="8" fill="#e34c26"/><rect x="415.80" y="72" width="0.20" height="8" fill="#384d54"/></g>
+<circle cx="30" cy="109" r="5" fill="#3178c6"/><text x="42" y="114" class="v">TypeScript <tspan class="l">54,4%</tspan></text>
+<circle cx="230" cy="109" r="5" fill="#3572A5"/><text x="242" y="114" class="v">Python <tspan class="l">38,1%</tspan></text>
+<circle cx="30" cy="135" r="5" fill="#663399"/><text x="42" y="140" class="v">CSS <tspan class="l">2,3%</tspan></text>
+<circle cx="230" cy="135" r="5" fill="#00ADD8"/><text x="242" y="140" class="v">Go <tspan class="l">2,0%</tspan></text>
 <circle cx="30" cy="161" r="5" fill="#f1e05a"/><text x="42" y="166" class="v">JavaScript <tspan class="l">1,7%</tspan></text>
 <circle cx="230" cy="161" r="5" fill="#336790"/><text x="242" y="166" class="v">PLpgSQL <tspan class="l">0,9%</tspan></text>
-<circle cx="30" cy="187" r="5" fill="#e34c26"/><text x="42" y="192" class="v">HTML <tspan class="l">0,7%</tspan></text>
+<circle cx="30" cy="187" r="5" fill="#e34c26"/><text x="42" y="192" class="v">HTML <tspan class="l">0,6%</tspan></text>
 <circle cx="230" cy="187" r="5" fill="#384d54"/><text x="242" y="192" class="v">Dockerfile <tspan class="l">0,1%</tspan></text>
 </svg>
