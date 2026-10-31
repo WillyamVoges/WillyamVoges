@@ -10,6 +10,6 @@
 <text x="24" y="52" class="t">Visão geral</text>
 <text x="24" y="92" class="l">Repositórios (incluindo privados)</text><text x="416" y="92" class="v" text-anchor="end">11</text><line x1="24" x2="416" y1="103" y2="103" stroke="#21262d"/>
 <text x="24" y="122" class="l">Projetos ativos no último ano</text><text x="416" y="122" class="v" text-anchor="end">7</text><line x1="24" x2="416" y1="133" y2="133" stroke="#21262d"/>
-<text x="24" y="152" class="l">Linguagens</text><text x="416" y="152" class="v" text-anchor="end">10</text><line x1="24" x2="416" y1="163" y2="163" stroke="#21262d"/>
-<text x="24" y="182" class="l">Tecnologias detectadas</text><text x="416" y="182" class="v" text-anchor="end">24</text>
+<text x="24" y="152" class="l">Linguagens</text><text x="416" y="152" class="v" text-anchor="end">13</text><line x1="24" x2="416" y1="163" y2="163" stroke="#21262d"/>
+<text x="24" y="182" class="l">Tecnologias detectadas</text><text x="416" y="182" class="v" text-anchor="end">27</text>
 </svg>
