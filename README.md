@@ -45,8 +45,8 @@ Trabalho de ponta a ponta, da arquitetura ao deploy, com uma regra simples: se u
 
 <!-- STACKS:START -->
 <table>
-  <tr><td><b>Linguagens</b></td><td><img src="https://skillicons.dev/icons?i=ts,py,js,go,php,swift,java,lua,ruby&theme=dark&perline=14" alt="ts, py, js, go, php, swift, java, lua, ruby" /></td></tr>
-  <tr><td><b>Front-end</b></td><td><img src="https://skillicons.dev/icons?i=html,css,sass,react,nextjs,tailwind,redux,threejs&theme=dark&perline=14" alt="html, css, sass, react, nextjs, tailwind, redux, threejs" /></td></tr>
+  <tr><td><b>Linguagens</b></td><td><img src="https://skillicons.dev/icons?i=ts,py,js,go,php,swift,java,ruby,lua&theme=dark&perline=14" alt="ts, py, js, go, php, swift, java, ruby, lua" /></td></tr>
+  <tr><td><b>Front-end</b></td><td><img src="https://skillicons.dev/icons?i=css,html,sass,react,nextjs,tailwind,redux,threejs&theme=dark&perline=14" alt="css, html, sass, react, nextjs, tailwind, redux, threejs" /></td></tr>
   <tr><td><b>Back-end</b></td><td><img src="https://skillicons.dev/icons?i=nodejs,nestjs,graphql,fastapi,express&theme=dark&perline=14" alt="nodejs, nestjs, graphql, fastapi, express" /></td></tr>
   <tr><td><b>Dados</b></td><td><img src="https://skillicons.dev/icons?i=prisma,postgres,redis,firebase&theme=dark&perline=14" alt="prisma, postgres, redis, firebase" /></td></tr>
   <tr><td><b>Infra &amp; DevOps</b></td><td><img src="https://skillicons.dev/icons?i=bash,docker,powershell,linux&theme=dark&perline=14" alt="bash, docker, powershell, linux" /></td></tr>
