@@ -14,8 +14,5 @@
 <text x="24" y="82" class="n">eSolu Chat</text>
 <text x="24" y="112" class="d">WhatsApp, Instagram e Facebook em uma única caixa de</text>
 <text x="24" y="132" class="d">entrada, com agentes de IA, CRM e relatórios.</text>
-<rect x="24" y="170" width="81" height="26" rx="13" fill="#161B22" stroke="#30363d"/><text x="64.5" y="188" class="c" text-anchor="middle">WhatsApp</text>
-<rect x="113" y="170" width="89" height="26" rx="13" fill="#161B22" stroke="#30363d"/><text x="157.5" y="188" class="c" text-anchor="middle">Instagram</text>
-<rect x="210" y="170" width="81" height="26" rx="13" fill="#161B22" stroke="#30363d"/><text x="250.5" y="188" class="c" text-anchor="middle">Facebook</text>
-<rect x="299" y="170" width="96" height="26" rx="13" fill="#161B22" stroke="#30363d"/><text x="347" y="188" class="c" text-anchor="middle">Agentes IA</text>
+<rect x="24" y="170" width="96" height="26" rx="13" fill="#161B22" stroke="#30363d"/><text x="72" y="188" class="c" text-anchor="middle">JavaScript</text>
 </svg>
